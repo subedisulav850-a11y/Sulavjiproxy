@@ -8,7 +8,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import "
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -160,7 +160,7 @@ fun OrangeProxyApp() {
                     adminUnlocked = false
                     screen = Screen.ADMIN
                 }
-                Screen.ADMIN -> AdminScreen(pad, maintenance, { maintenance = it }, creditType, { creditType = it }, broadcast, { broadcast = it }, adminIps, { adminIps = it }, activeAdminIp, { activeAdminIp = it }, heroBitmap, imageLauncher, exportLauncher, persistAdmin, { adminUnlocked = false; screen = Screen.SETTINGS })
+                Screen.ADMIN -> AdminScreen(pad, maintenance, { maintenance = it }, creditType, { creditType = it }, broadcast, { broadcast = it }, adminIps, { adminIps = it }, activeAdminIp, { activeAdminIp = it }, heroBitmap, imageLauncher, exportLauncher, { persistAdmin() }, { adminUnlocked = false; screen = Screen.SETTINGS })
             }
         }
     }
@@ -220,7 +220,7 @@ fun ProxyScreen(pad: PaddingValues, target: String, setTarget: (String) -> Unit,
                 OutlinedTextField(port, setPort, Modifier.width(120.dp), label = { Text("Port") }, enabled = !running, singleLine = true)
             }
             Spacer(Modifier.height(14.dp))
-            Button(onClick = toggle, Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(15.dp), colors = ButtonDefaults.buttonColors(containerColor = if (running) Danger else Orange)) { Text(if (running) "STOP PROXY" else "START PROXY", fontWeight = FontWeight.Bold) }
+            Button(onClick = toggle, modifier = Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(15.dp), colors = ButtonDefaults.buttonColors(containerColor = if (running) Danger else Orange)) { Text(if (running) "STOP PROXY" else "START PROXY", fontWeight = FontWeight.Bold) }
             Spacer(Modifier.height(10.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.size(9.dp).clip(RoundedCornerShape(50)).background(if (running) Color(0xFF2FA84F) else Color.Gray)); Spacer(Modifier.width(8.dp)); Text(status, color = Muted, fontSize = 13.sp)
