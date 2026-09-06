@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.SulavProxy" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#E05D00</item>
+        <item name="android:navigationBarColor">#1D1712</item>
+    </style>
+</resources>
